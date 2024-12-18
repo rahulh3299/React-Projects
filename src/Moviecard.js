@@ -21,12 +21,12 @@ export default class MovieCard extends Component{
                             <div className="star-dis">
                                 
                               <img alt="minus" src="https://cdn-icons-png.flaticon.com/128/9146/9146915.png"
-                              className="stars"/>
+                              className="str-btn"/>
                               <img alt="star" src="https://cdn-icons-png.flaticon.com/128/477/477406.png"
                                className="stars"/>
                               <img alt="plus" src="https://cdn-icons-png.flaticon.com/128/9312/9312231.png"
-                              className="stars"/> 
-
+                              className="str-btn"/> 
+                              <span>0</span>
                                 
                             </div>
 
