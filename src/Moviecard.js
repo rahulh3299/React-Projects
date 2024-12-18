@@ -7,15 +7,28 @@ export default class MovieCard extends Component{
             title:"The Avengers",
             plot:"Supernatural powers shown in the movie",
             price:199,
-            rating:7.5
+            rating:7.5,
+            starCount:0
         }
        // this.addStars = this.addStars.bind(this);
     }
     addStars=()=>{
-        console.log("this",this);
+        //form one of setState()
+        // this.setState({
+        //     starCount: this.state.starCount += 0.5
+        // });
+
+        //form two of setState()
+        this.setState((prevState)=>{
+            return{
+                starCount: prevState.starCount + 0.5
+            }
+        });
+        // console.log("this.state.starCount",this.state.starCount);
+        // this.state.starCount += 0.5;
     }
     render(){
-        const {title,plot,price,rating} = this.state;
+        const {title,plot,price,rating,starCount} = this.state;
         return(
             <div className="main">
                 <div className="movie-card">
@@ -39,7 +52,7 @@ export default class MovieCard extends Component{
                                className="stars"/>
                               <img alt="plus" src="https://cdn-icons-png.flaticon.com/128/9312/9312231.png"
                               className="str-btn" onClick={this.addStars}/> 
-                              <span>0</span>
+                              <span>{starCount}</span>
                                 
                             </div>
 
