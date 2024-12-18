@@ -27,6 +27,16 @@ export default class MovieCard extends Component{
         // console.log("this.state.starCount",this.state.starCount);
         // this.state.starCount += 0.5;
     }
+    decStars=()=>{
+        if(this.state.starCount <=0 ){
+            return;
+        }
+        this.setState((prevState)=>{
+            return{
+              starCount:prevState.starCount-0.5
+            }
+        })
+    }
     render(){
         const {title,plot,price,rating,starCount} = this.state;
         return(
@@ -47,7 +57,7 @@ export default class MovieCard extends Component{
                             <div className="star-dis">
                                 
                               <img alt="minus" src="https://cdn-icons-png.flaticon.com/128/9146/9146915.png"
-                              className="str-btn" />
+                              className="str-btn" onClick={this.decStars}/>
                               <img alt="star" src="https://cdn-icons-png.flaticon.com/128/477/477406.png"
                                className="stars"/>
                               <img alt="plus" src="https://cdn-icons-png.flaticon.com/128/9312/9312231.png"
