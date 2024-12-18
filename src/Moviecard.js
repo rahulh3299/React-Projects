@@ -1,8 +1,17 @@
 import { Component } from "react";
 const avengers = require("./data/avengers.png");
 export default class MovieCard extends Component{
-   
+    constructor(){
+        super();
+        this.state = {
+            title:"The Avengers",
+            plot:"Supernatural powers shown in the movie",
+            price:199,
+            rating:7.5
+        }
+    }
     render(){
+        const {title,plot,price,rating} = this.state;
         return(
             <div className="main">
                 <div className="movie-card">
@@ -12,12 +21,12 @@ export default class MovieCard extends Component{
                     </div>
                     
                     <div className="right">
-                        <div className="title">The Avengers</div>
-                        <div className="plot">Supernatural powers shown in the movie</div>
-                        <div className="price">Rs. 199</div>
+                        <div className="title">{title}</div>
+                        <div className="plot">{plot}</div>
+                        <div className="price">{price}</div>
 
                         <div className="footer">
-                            <div className="rating">Rating</div>
+                            <div className="rating">{rating}</div>
                             <div className="star-dis">
                                 
                               <img alt="minus" src="https://cdn-icons-png.flaticon.com/128/9146/9146915.png"
