@@ -9,6 +9,10 @@ export default class MovieCard extends Component{
             price:199,
             rating:7.5
         }
+       // this.addStars = this.addStars.bind(this);
+    }
+    addStars=()=>{
+        console.log("this",this);
     }
     render(){
         const {title,plot,price,rating} = this.state;
@@ -30,17 +34,17 @@ export default class MovieCard extends Component{
                             <div className="star-dis">
                                 
                               <img alt="minus" src="https://cdn-icons-png.flaticon.com/128/9146/9146915.png"
-                              className="str-btn"/>
+                              className="str-btn" />
                               <img alt="star" src="https://cdn-icons-png.flaticon.com/128/477/477406.png"
                                className="stars"/>
                               <img alt="plus" src="https://cdn-icons-png.flaticon.com/128/9312/9312231.png"
-                              className="str-btn"/> 
+                              className="str-btn" onClick={this.addStars}/> 
                               <span>0</span>
                                 
                             </div>
 
                             <button className="favourite-btn">Favourite</button>
-                            <button className="cart-btn">Cart</button>
+                            <button className="cart-btn">Add to Cart</button>
                         </div>
                     </div>
                 </div>
