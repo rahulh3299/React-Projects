@@ -8,8 +8,9 @@ export default class MovieCard extends Component{
             plot:"Supernatural powers shown in the movie",
             price:199,
             rating:7.5,
-            starCount:0
-        }
+            starCount:0,
+            fav:false
+        }    
        // this.addStars = this.addStars.bind(this);
     }
     addStars=()=>{
@@ -19,6 +20,9 @@ export default class MovieCard extends Component{
         // });
 
         //form two of setState()
+        if(this.state.starCount >=5 ){
+            return;
+        }
         this.setState((prevState)=>{
             return{
                 starCount: prevState.starCount + 0.5
@@ -27,6 +31,7 @@ export default class MovieCard extends Component{
         // console.log("this.state.starCount",this.state.starCount);
         // this.state.starCount += 0.5;
     }
+
     decStars=()=>{
         if(this.state.starCount <=0 ){
             return;
@@ -37,8 +42,15 @@ export default class MovieCard extends Component{
             }
         })
     }
+
+    handleFav = ()=>{
+       this.setState({
+        fav: !this.state.fav
+       });
+    }
+
     render(){
-        const {title,plot,price,rating,starCount} = this.state;
+        const {title,plot,price,rating,starCount,fav} = this.state;
         return(
             <div className="main">
                 <div className="movie-card">
@@ -65,8 +77,11 @@ export default class MovieCard extends Component{
                               <span>{starCount}</span>
                                 
                             </div>
-
-                            <button className="favourite-btn">Favourite</button>
+                             {fav ? <button className="unfavourite-btn" onClick={this.handleFav}>Unfavourite</button> 
+                             : <button className="favourite-btn" onClick={this.handleFav}>Favourite</button>
+                             }
+                            
+                            
                             <button className="cart-btn">Add to Cart</button>
                         </div>
                     </div>
