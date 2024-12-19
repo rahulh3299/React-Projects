@@ -9,7 +9,8 @@ export default class MovieCard extends Component{
             price:199,
             rating:7.5,
             starCount:0,
-            fav:false
+            fav:false,
+            cart:false
         }    
        // this.addStars = this.addStars.bind(this);
     }
@@ -49,8 +50,14 @@ export default class MovieCard extends Component{
        });
     }
 
+    handleCart = ()=>{
+        this.setState({
+            cart: !this.state.cart
+        });
+    }
+
     render(){
-        const {title,plot,price,rating,starCount,fav} = this.state;
+        const {title,plot,price,rating,starCount,fav,cart} = this.state;
         return(
             <div className="main">
                 <div className="movie-card">
@@ -81,8 +88,9 @@ export default class MovieCard extends Component{
                              : <button className="favourite-btn" onClick={this.handleFav}>Favourite</button>
                              }
                             
+                            {cart ? <button className="cart-btn" onClick={this.handleCart}>Remove from cart</button>: 
+                            <button className="cart-btn" onClick={this.handleCart}>Add to Cart</button>}
                             
-                            <button className="cart-btn">Add to Cart</button>
                         </div>
                     </div>
                 </div>
