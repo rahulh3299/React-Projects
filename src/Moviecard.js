@@ -1,19 +1,7 @@
 import { Component } from "react";
-const avengers = require("./data/avengers.png");
+//const avengers = require("./data/avengers.png");
 export default class MovieCard extends Component{
-    constructor(){
-        super();
-        this.state = {
-            title:"The Avengers",
-            plot:"Supernatural powers shown in the movie",
-            price:199,
-            rating:7.5,
-            starCount:0,
-            fav:false,
-            cart:false
-        }    
-       // this.addStars = this.addStars.bind(this);
-    }
+    
     addStars=()=>{
         //form one of setState()
         // this.setState({
@@ -57,12 +45,13 @@ export default class MovieCard extends Component{
     }
 
     render(){
-        const {title,plot,price,rating,starCount,fav,cart} = this.state;
+        
+        const {title,plot,poster,price,rating,starCount,fav,cart} = this.props.movie;
         return(
             <div className="main">
                 <div className="movie-card">
                     <div className="left">
-                        <img src={avengers} alt="Poster" />
+                        <img src={poster} alt="Poster" />
                     
                     </div>
                     
