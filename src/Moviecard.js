@@ -5,8 +5,8 @@ export default class MovieCard extends Component{
     
 
     render(){
-        const {movie,addStars} = this.props;
-        const {title,plot,poster,price,rating,star,fav,cart} = this.props.movie;
+        const {movie,addStars,decStars,toggleFav,toggleCart} = this.props;
+        const {title,plot,poster,price,rating,star,fav,isInCart} = this.props.movie;
         return(
             <div className="main">
                 <div className="movie-card">
@@ -25,7 +25,7 @@ export default class MovieCard extends Component{
                             <div className="star-dis">
                                 
                               <img alt="minus" src="https://cdn-icons-png.flaticon.com/128/9146/9146915.png"
-                              className="str-btn" onClick={this.decStars}/>
+                              className="str-btn" onClick={()=>{decStars(movie)}}/>
                               <img alt="star" src="https://cdn-icons-png.flaticon.com/128/477/477406.png"
                                className="stars"/>
                               <img alt="plus" src="https://cdn-icons-png.flaticon.com/128/9312/9312231.png"
@@ -33,12 +33,12 @@ export default class MovieCard extends Component{
                               <span>{star}</span>
                                 
                             </div>
-                             {fav ? <button className="unfavourite-btn" onClick={this.handleFav}>Unfavourite</button> 
-                             : <button className="favourite-btn" onClick={this.handleFav}>Favourite</button>
+                             {fav ? <button className="unfavourite-btn" onClick={()=>{toggleFav(movie)}}>Unfavourite</button> 
+                             : <button className="favourite-btn" onClick={()=>{toggleFav(movie)}}>Favourite</button>
                              }
                             
-                            {cart ? <button className="cart-btn" onClick={this.handleCart}>Remove from cart</button>: 
-                            <button className="cart-btn" onClick={this.handleCart}>Add to Cart</button>}
+                            {isInCart ? <button className="cart-btn" onClick={()=>{toggleCart(movie)}}>Remove from cart</button>: 
+                            <button className="cart-btn" onClick={()=>{toggleCart(movie)}}>Add to Cart</button>}
                             
                         </div>
                     </div>
