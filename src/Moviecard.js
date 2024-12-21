@@ -1,12 +1,12 @@
-import { Component } from "react";
+//import { Component } from "react";
 //const avengers = require("./data/avengers.png");
-export default class MovieCard extends Component{
+export default function MovieCard(props){
     
     
 
-    render(){
-        const {movie,addStars,decStars,toggleFav,toggleCart} = this.props;
-        const {title,plot,poster,price,rating,star,fav,isInCart} = this.props.movie;
+    
+        const {movie,addStars,decStars,toggleFav,toggleCart} = props;
+        const {title,plot,poster,price,rating,star,fav,isInCart} = props.movie;
         return(
             <div className="main">
                 <div className="movie-card">
@@ -45,6 +45,6 @@ export default class MovieCard extends Component{
                 </div>
             </div>
         )
-    }
+    
        
 }
