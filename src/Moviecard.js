@@ -37,7 +37,7 @@ export default class MovieCard extends Component{
                              : <button className="favourite-btn" onClick={()=>{toggleFav(movie)}}>Favourite</button>
                              }
                             
-                            {isInCart ? <button className="cart-btn" onClick={()=>{toggleCart(movie)}}>Remove from cart</button>: 
+                            {isInCart ? <button className="removeCart-btn" onClick={()=>{toggleCart(movie)}}>Remove from cart</button>: 
                             <button className="cart-btn" onClick={()=>{toggleCart(movie)}}>Add to Cart</button>}
                             
                         </div>
