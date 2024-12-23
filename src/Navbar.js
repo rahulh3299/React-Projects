@@ -37,10 +37,10 @@ const CartCount = styled.span`
     font-size: 12px;
     visibility:${(props)=>props.show?"visible":"hidden"}
 `
-class Navbar extends React.Component{
-   render(){
-    //console.log("Navbar cartcount:"+this.props.cartCount);
-    const {cartCount} = this.props;
+function Navbar(props){
+   
+    //console.log("Navbar cartcount:"+props.cartCount);
+    const {cartCount} = props;
      return(
         <>
          <Nav>
@@ -54,7 +54,7 @@ class Navbar extends React.Component{
          </Nav>
         </>
      );
-   }
+   
 }
 export default Navbar;
 /* .nav{
